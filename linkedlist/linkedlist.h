@@ -35,17 +35,17 @@ class LList{
     return list_size;
   }
   
-  int getSizeTransversing(){//returns size of list through transversal
+  int getSizeTraversing(){//returns size of list through traversal
     if(head ==NULL){
       return 0;
     }
     node_t* temp = head;
-    int transversal_size = 0;
+    int traversal_size = 0;
     while(temp->next){//will stop at second to last node
       temp = temp->next;
-      transversal_size++;
+      traversal_size++;
     }
-    return transversal_size + 1;//add 1 to account for the last node
+    return traversal_size + 1;//add 1 to account for the last node
   }
   
   void pushFront(int value){//push a value to the front of the list, making it the first item

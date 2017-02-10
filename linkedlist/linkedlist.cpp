@@ -30,7 +30,7 @@ int main(){
   cout << "Display list of 20 elements:" << endl;
   l.printList();
   cout << "Quick size: " << l.getSizeQuick() << endl;
-  cout << "Size through transversal: " << l.getSizeTransversing() << endl;
+  cout << "Size through traversal: " << l.getSizeTraversing() << endl;
   
   return 0;
 }
