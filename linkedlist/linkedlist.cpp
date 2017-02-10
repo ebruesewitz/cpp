@@ -29,6 +29,8 @@ int main(){
   
   cout << "Display list of 20 elements:" << endl;
   l.printList();
+  cout << "Reverse:" << endl;
+  l.reverseList();
   cout << "Quick size: " << l.getSizeQuick() << endl;
   cout << "Size through traversal: " << l.getSizeTraversing() << endl;
   
