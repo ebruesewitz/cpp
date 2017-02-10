@@ -111,7 +111,21 @@ class LList{
     std::cout << "]" << std::endl;
   }
   
-  void reverseList(){//print out a string of the list but in reverse
+  LList reverse(){
+    LList revlist;
+    if(head == NULL){
+      return revlist;
+    }
+    node_t* temp = head;
+    while(temp){
+      revlist.pushFront(temp->data);
+      temp = temp->next;
+    }
+    return revlist;
+  }
+  
+  
+  void printReverseList(){//print out a string of the list but in reverse
     if(getSizeQuick() == 0){
       std:: cout << "empty" << std::endl;
       return;
@@ -120,16 +134,18 @@ class LList{
       return;
     }
     std::cout << "[";
-    reverseList(head);
+    printReverseList(head);
     std::cout << "]" << std::endl;
   }
   
-  void reverseList(node_t* n){//recursively iterate through list to get to last element then print all data
+  void printReverseList(node_t* n){//recursively iterate through list to get to last element then print all data
     if(n != NULL){
-      reverseList(n->next);
+      printReverseList(n->next);
       std::cout << n->data << ", ";
     }
   }
+  
+  
   
   private:
     node_t* head; //points to first element in list
