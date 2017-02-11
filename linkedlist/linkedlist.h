@@ -9,7 +9,7 @@ Class of 2019
 #include <iostream>
 #include <stdlib.h>
 
-struct node_t{
+struct node_t{//node struct holding data and pointer to next node
   int data;
   node_t* next;
 }; 
@@ -21,7 +21,7 @@ class LList{
     list_size = 0;
   }
   
-  LList(const LList& l){
+  LList(const LList& l){//copy constructor
     head = NULL;
     list_size = 0;
     node_t* temp = l.head;
@@ -31,17 +31,12 @@ class LList{
     }
   }
   
-  ~LList(){//clears list to prevent mem. leaks
-    node_t* temp = head;
-    while(temp){
-      node_t* to_delete = temp;
-      temp = temp -> next;
-      delete to_delete;
-    }
-    head = NULL;
+  ~LList(){
+    clear();
+    std::cout << "cleared" << std::endl;//checking to make sure destructor works
   }
   
-  void clear(){
+  void clear(){//clears list to prevent mem. leaks
     node_t* temp = head;
     while(temp){
       node_t* to_delete = temp;
@@ -86,7 +81,7 @@ class LList{
     while(temp->next){//goes to the second to last node
       temp = temp->next;
     }
-    node_t* back = new node_t;
+    node_t* back = new node_t;//dynamically allocate mem for new node
     back->data = value;
     back->next = NULL;//make the new node the end of the list
     temp->next = back;//redirect the old end of list to the new back node
