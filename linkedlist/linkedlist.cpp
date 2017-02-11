@@ -38,5 +38,17 @@ int main(){
   cout << "Print new reversed list:" << endl;
   r.printList();
   
+  l.inPlaceReverse();//reverse the original list
+  cout << "Reverse list in place:" << endl;
+  l.printList();
+  
+  LList m(l);
+  cout << "Print list l" << endl;
+  l.printList();
+  cout << "Print new copied list" << endl;
+  //make sure the copy constructor is a deep copy
+  l.clear();
+  m.printList();
+  
   return 0;
 }

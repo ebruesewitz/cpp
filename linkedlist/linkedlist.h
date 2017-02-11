@@ -21,7 +21,27 @@ class LList{
     list_size = 0;
   }
   
+  LList(const LList& l){
+    head = NULL;
+    list_size = 0;
+    node_t* temp = l.head;
+    while(temp != NULL){
+      pushBack(temp->data);
+      temp = temp->next;
+    }
+  }
+  
   ~LList(){//clears list to prevent mem. leaks
+    node_t* temp = head;
+    while(temp){
+      node_t* to_delete = temp;
+      temp = temp -> next;
+      delete to_delete;
+    }
+    head = NULL;
+  }
+  
+  void clear(){
     node_t* temp = head;
     while(temp){
       node_t* to_delete = temp;
@@ -111,7 +131,7 @@ class LList{
     std::cout << "]" << std::endl;
   }
   
-  LList reverse(){
+  LList reverse(){//create a new reversed list. doubles storage. find out how to do it in place
     LList revlist;
     if(head == NULL){
       return revlist;
@@ -122,6 +142,19 @@ class LList{
       temp = temp->next;
     }
     return revlist;
+  }
+  
+  void inPlaceReverse(){//reverse the list in place by switching pointers. doesn't take extra storage
+    node_t* prev = NULL;
+    node_t* next = NULL;
+    node_t* curr = head;
+    while(curr != NULL){
+      next = curr->next;
+      curr->next = prev;
+      prev = curr;
+      curr = next;
+    }
+    head = prev;
   }
   
   
