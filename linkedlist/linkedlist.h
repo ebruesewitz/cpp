@@ -87,16 +87,19 @@ class LList{
     temp->next = back;//redirect the old end of list to the new back node
   }
   
-  void remove(int pos){//remove the nth position from a list
-    if(pos == 0){
+  void remove(int pos){//remove the nth number from a list
+    if(pos == 1){
       node_t* to_delete = head;
       head = head-> next;
       delete to_delete;
       list_size--;
       return;
+    }else if(pos < 1 || pos > getSizeQuick()){
+      std:: cout << "Position not in list." << std::endl;
+      return;
     }
     node_t* temp = head;
-    int i = 0;
+    int i = 1;
     while((temp) && i != pos-1){//takes us to the position right before the node to be deleted
       temp = temp->next;
       i++;
