@@ -1,11 +1,13 @@
 //INSERTION SORT
 //Elisabeth Bruesewitz
 
-/*Sort an array of ints by shifting values to make room to insert an element into the correct spot
-no extra storage (except for a few additional variables)
+/*Sort a vector of ints by shifting values to make room to insert an element into the correct spot
 
-W(n) = O(n^2)
-B(n) = O(n)
+Done in place.
+
+W(n) = n^2
+A(n) = n^2
+B(n) = n
 */
 
 #include <stdlib.h>
